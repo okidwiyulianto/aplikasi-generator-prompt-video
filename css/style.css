@@ -1,0 +1,60 @@
+/* Mengatur font dasar untuk body jika tidak menggunakan Tailwind secara penuh */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Warna dasar dari body sudah diatur via kelas Tailwind di HTML,
+       namun bisa ditambahkan di sini jika diperlukan untuk elemen lain. */
+}
+
+/* Styling untuk Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block; /* Memastikan (?) dan tooltiptextnya adalah satu kesatuan blok */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden; /* Awalnya tidak terlihat dan tidak memakan ruang */
+    opacity: 0; /* Awalnya transparan */
+    pointer-events: none; /* Awalnya tidak bisa diinteraksi (misalnya diklik) */
+    width: 220px;
+    background-color: #1E1E1E;
+    color: #33FF00;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 10; /* Menaikkan z-index untuk memastikan di atas elemen lain */
+    bottom: 125%; /* Posisi di atas elemen pemicu */
+    left: 50%;
+    margin-left: -110px; /* Setengah dari width untuk centering */
+    transition: opacity 0.3s ease-in-out; /* Animasi fade yang halus */
+    border: 1px solid #33FF00;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Posisi panah di bawah kotak tooltip */
+    left: 50%;
+    margin-left: -5px; /* Untuk centering panah */
+    border-width: 5px;
+    border-style: solid;
+    border-color: #33FF00 transparent transparent transparent; /* Panah mengarah ke atas */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible; /* Menjadi terlihat saat di-hover */
+    opacity: 1; /* Menjadi solid (tidak transparan) */
+    pointer-events: auto; /* Menjadi bisa diinteraksi lagi */
+}
+
+/* Styling untuk Select Dropdown Kustom */
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2333FF00%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 0.65rem auto;
+    padding-right: 2.5rem;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Prompt Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#282828] text-[#33FF00] min-h-screen flex items-center justify-center p-4 selection:bg-[#33FF00] selection:text-black">
+    <div class="bg-[#1E1E1E] p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl w-full max-w-2xl transform transition-all duration-500 hover:scale-[1.01]">
+        <header class="mb-6 sm:mb-8 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-[#33FF00]">Generator Prompt Video</h1>
+            <p class="text-[#33FF00]/70 mt-2 text-sm sm:text-base">Aplikasi web untuk menyusun prompt video</p>
+        </header>
+
+        <form id="promptForm" class="space-y-5">
+            <div>
+                <label for="subject" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Subjek Utama
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Fokus utama video Anda (mis: seorang programmer, singa besar, kursi goyang merah).</span>
+                    </span>
+                </label>
+                <input type="text" id="subject" name="subject" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: seorang pria tua bijaksana">
+            </div>
+
+            <div>
+                <label for="action" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Aksi Detail
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Apa yang dilakukan subjek? (mis: berjalan di pantai, melukis mural, mengendarai sepeda motor dengan cepat).</span>
+                    </span>
+                </label>
+                <input type="text" id="action" name="action" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: sedang merajut syal berwarna pelangi">
+            </div>
+
+            <div>
+                <label for="setting" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Setting/Lokasi
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Di mana adegan berlangsung? (mis: hutan berkabut, kota cyberpunk di malam hari, interior kafe yang nyaman).</span>
+                    </span>
+                </label>
+                <input type="text" id="setting" name="setting" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: di teras rumah kayu yang menghadap pegunungan">
+            </div>
+
+            <div>
+                <label for="lighting" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Waktu & Pencahayaan
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Kapan adegan terjadi dan bagaimana pencahayaannya? (mis: senja keemasan, tengah malam diterangi bulan, pencahayaan studio dramatis).</span>
+                    </span>
+                </label>
+                <input type="text" id="lighting" name="lighting" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: pagi hari yang cerah dengan sinar matahari lembut">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="shotType" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                        Tipe Shot Kamera
+                        <span class="tooltip text-[#33FF00] cursor-help">(?)
+                            <span class="tooltiptext">Bagaimana framing adegan? (mis: close-up, wide shot, aerial view, point of view).</span>
+                        </span>
+                    </label>
+                    <select id="shotType" name="shotType" class="custom-select w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors">
+                        <option value="">Pilih Tipe Shot</option>
+                        <option value="close-up shot">Close-up Shot</option>
+                        <option value="medium shot">Medium Shot</option>
+                        <option value="full shot">Full Shot</option>
+                        <option value="wide shot">Wide Shot</option>
+                        <option value="extreme wide shot">Extreme Wide Shot</option>
+                        <option value="aerial shot">Aerial Shot</option>
+                        <option value="drone shot">Drone Shot</option>
+                        <option value="point of view shot (POV)">Point of View (POV)</option>
+                        <option value="macro shot">Macro Shot</option>
+                        <option value="handheld shot">Handheld Shot</option>
+                        <option value="cinematic shot">Cinematic Shot</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="cameraAngle" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                        Sudut Pandang Kamera
+                        <span class="tooltip text-[#33FF00] cursor-help">(?)
+                            <span class="tooltiptext">Dari mana kamera melihat subjek? (mis: eye-level, low angle, high angle, bird's eye view).</span>
+                        </span>
+                    </label>
+                     <select id="cameraAngle" name="cameraAngle" class="custom-select w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors">
+                        <option value="">Pilih Sudut Kamera</option>
+                        <option value="eye-level">Eye-level</option>
+                        <option value="low angle">Low Angle</option>
+                        <option value="high angle">High Angle</option>
+                        <option value="bird's eye view">Bird's Eye View</option>
+                        <option value="worm's eye view">Worm's Eye View</option>
+                        <option value="dutch angle">Dutch Angle</option>
+                        <option value="over-the-shoulder shot">Over-the-shoulder Shot</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label for="realism" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Kualitas & Gaya Realisme
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Deskripsikan tingkat realisme dan gaya visual yang diinginkan (mis: photorealistic, hyperrealistic, 8K, cinematic lighting, film grain).</span>
+                    </span>
+                </label>
+                <input type="text" id="realism" name="realism" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: hyperrealistic, 4K, cinematic lighting">
+            </div>
+
+            <div>
+                <label for="details" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Detail Tambahan
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Elemen spesifik lainnya untuk meningkatkan realisme atau keunikan (mis: pakaian detail, ekspresi wajah, cuaca, tekstur tertentu, mood).</span>
+                    </span>
+                </label>
+                <textarea id="details" name="details" rows="2" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: angin sepoi-sepoi meniup rambutnya, tetesan embun di dedaunan, suasana tenang dan damai"></textarea>
+            </div>
+
+            <div>
+                <label for="dialogue" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Dialog (Opsional)
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Masukkan dialog yang diucapkan oleh karakter. Bisa berupa narasi atau percakapan.</span>
+                    </span>
+                </label>
+                <textarea id="dialogue" name="dialogue" rows="3" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: Karakter A: 'Kita harus pergi sekarang!' Narator: 'Dan mereka pun memulai perjalanan...'"></textarea>
+            </div>
+
+            <div>
+                <label for="negative" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                    Elemen Negatif (Opsional)
+                    <span class="tooltip text-[#33FF00] cursor-help">(?)
+                        <span class="tooltiptext">Apa yang TIDAK ingin Anda lihat? (mis: no blur, no cartoon, no text, avoid unnatural colors).</span>
+                    </span>
+                </label>
+                <input type="text" id="negative" name="negative" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: no motion blur, no unrealistic proportions">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="duration" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                        Durasi Video (Opsional)
+                        <span class="tooltip text-[#33FF00] cursor-help">(?)
+                            <span class="tooltiptext">Perkiraan durasi video (mis: short clip, 5 seconds, 10-15 seconds).</span>
+                        </span>
+                    </label>
+                    <input type="text" id="duration" name="duration" class="w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors placeholder:text-[#33FF00]/50" placeholder="Contoh: 8 detik">
+                </div>
+                <div>
+                    <label for="aspectRatio" class="block text-sm font-medium text-[#33FF00]/80 mb-1">
+                        Aspect Ratio (Opsional)
+                        <span class="tooltip text-[#33FF00] cursor-help">(?)
+                            <span class="tooltiptext">Rasio aspek video (mis: 16:9, 9:16, 1:1, 4:3).</span>
+                        </span>
+                    </label>
+                    <select id="aspectRatio" name="aspectRatio" class="custom-select w-full p-3 bg-[#3a3a3a] border border-[#555555] rounded-lg focus:ring-2 focus:ring-[#33FF00] focus:border-[#33FF00] outline-none transition-colors">
+                        <option value="">Pilih Aspect Ratio</option>
+                        <option value="--ar 16:9">16:9 (Landscape)</option>
+                        <option value="--ar 9:16">9:16 (Portrait)</option>
+                        <option value="--ar 1:1">1:1 (Square)</option>
+                        <option value="--ar 4:3">4:3 (Standard)</option>
+                        <option value="--ar 21:9">21:9 (Cinemascope)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                <button type="submit" class="w-full sm:w-auto flex-grow bg-[#33FF00] hover:bg-[#2ae600] text-black font-semibold py-3 px-6 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#33FF00] focus:ring-offset-2 focus:ring-offset-[#1E1E1E]">
+                    Buat Prompt
+                </button>
+                <button type="button" id="copyButton" class="w-full sm:w-auto flex-grow bg-[#25b300] hover:bg-[#1f9900] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#25b300] focus:ring-offset-2 focus:ring-offset-[#1E1E1E]">
+                    Salin Prompt
+                </button>
+                <button type="button" id="resetButton" class="w-full sm:w-auto flex-grow bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-[#1E1E1E]">
+                    Reset Form
+                </button>
+            </div>
+             <div id="copyMessage" class="text-center mt-2 h-5 transition-opacity duration-300"></div> </form>
+
+        <div class="mt-6 sm:mt-8">
+            <label for="generatedPrompt" class="block text-sm font-medium text-[#33FF00]/80 mb-1">Prompt yang Dihasilkan:</label>
+            <textarea id="generatedPrompt" readonly rows="6" class="w-full p-3 bg-[#181818] border border-[#444444] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#33FF00] resize-none placeholder:text-[#33FF00]/50" placeholder="Prompt Anda akan muncul di sini..."></textarea>
+        </div>
+
+        <footer class="mt-8 text-center text-xs text-[#33FF00]/60">
+            <p>Recode with ❤️ by Oki Dwi Yulianto</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
